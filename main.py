@@ -13,18 +13,16 @@ class RunGame:
         self.init_ui()
         self.game_loop()
 
-
     def init_ui(self):
         pg.init()
         pg.display.set_caption('Quick Start')
         self.window_surface = pg.display.set_mode(self.screen_size)
         self.background = pg.Surface(self.screen_size)
-        self.background.fill(COLORS["black"])
+        self.background.fill(COLORS["gray"])
 
         self.manager = pygame_gui.UIManager(self.screen_size)
 
         self.set_buttons()
-
 
     def set_buttons(self):
         def offset_button(top_left):
@@ -44,7 +42,6 @@ class RunGame:
                                                manager=self.manager)
             self.buttons.append(btn)
             self.button = pg.Rect(offset_button(top_left), dimensions)
-
 
     def get_events(self):
         """
@@ -66,14 +63,12 @@ class RunGame:
             "dt": dt,
         }
 
-    
     def game_loop(self):
         
         is_running = True
 
         while is_running:
-
-            #time_delta = clock.tick(FPS) / 1000.0 
+            # time_delta = clock.tick(FPS) / 1000.0
 
             self.clock.tick(FPS)
 
@@ -101,5 +96,5 @@ class RunGame:
 
 
 RunGame()
-# Close pygame
+# Close the game
 pg.quit()
